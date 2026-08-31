@@ -1,9 +1,10 @@
 // @ts-check
 import { defineConfig, passthroughImageService } from 'astro/config';
 
-// Update `site` to your final Netlify (or custom) domain.
+// `site` must be the canonical URL the site is actually served from —
+// it drives <link rel="canonical">, OG tags and any sitemap.
 export default defineConfig({
-  site: 'https://barsi.xyz',
+  site: 'https://patrikbarsi.xyz',
   trailingSlash: 'ignore',
   image: {
     // No native image processing needed for a text-first terminal site.

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://barsi.xyz/sitemap.xml
+Sitemap: https://patrikbarsi.xyz/sitemap.xml
