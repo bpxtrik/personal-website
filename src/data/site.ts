@@ -19,8 +19,7 @@ export const profile = {
     "containers, and AWS deployments — and I ship the full stack when a project needs it.",
   socials: {
     github: 'https://github.com/bpxtrik',
-    // TODO: replace with your real LinkedIn URL.
-    linkedin: 'https://www.linkedin.com/in/patrik-barsi',
+    linkedin: 'https://www.linkedin.com/in/patrik-barsi-43a83a324/',
   },
 } as const;
 
@@ -28,8 +27,7 @@ export type Social = keyof typeof profile.socials;
 
 export const education = [
   {
-    // TODO: add your MSc specialisation/programme name when you want it shown.
-    degree: 'Master of Science',
+    degree: 'Master of Science, Informatics',
     school: 'Norwegian University of Science and Technology (NTNU)',
     where: 'Trondheim, Norway',
     start: '2026',
