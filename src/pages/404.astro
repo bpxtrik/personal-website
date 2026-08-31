@@ -1,0 +1,22 @@
+---
+import Base from '../layouts/Base.astro';
+import TerminalWindow from '../components/TerminalWindow.astro';
+---
+
+<Base title="404 — not found">
+  <TerminalWindow title="patrik@barsi.xyz: ~">
+    <div class="transcript">
+      <div class="line">
+        <span class="prompt"><span class="u">patrik</span><span class="s">@</span
+          ><span class="h">barsi.xyz</span><span class="s">:</span><span class="p">~</span
+          ><span class="s">$ </span></span><span class="c-cmd">cat {Astro.url.pathname}</span>
+      </div>
+      <div class="out">
+        <div class="line"><span class="c-err">cat: {Astro.url.pathname}: No such file or directory</span></div>
+        <div class="line">&nbsp;</div>
+        <div class="line"><span class="c-muted"># try one of these:</span></div>
+        <div class="line"><a href="/">~</a> · <a href="/about">about</a> · <a href="/experience">experience</a> · <a href="/skills">skills</a> · <a href="/projects">projects</a> · <a href="/contact">contact</a></div>
+      </div>
+    </div>
+  </TerminalWindow>
+</Base>

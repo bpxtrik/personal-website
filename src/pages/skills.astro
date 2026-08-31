@@ -1,0 +1,40 @@
+---
+import Base from '../layouts/Base.astro';
+import TerminalWindow from '../components/TerminalWindow.astro';
+import ShellBlock from '../components/ShellBlock.astro';
+import { skillsLines } from '../lib/shell';
+import { profile, skills } from '../data/site';
+---
+
+<Base
+  title={`skills — ${profile.name}`}
+  description={`Languages and tools ${profile.name} works with.`}
+>
+  <header class="pagehead">
+    <h1>skills</h1>
+    <p>languages and tools I reach for.</p>
+  </header>
+
+  <TerminalWindow title="patrik@barsi.xyz: ~/skills">
+    <div class="transcript">
+      <ShellBlock cmd="cat skills.json" lines={skillsLines()} />
+    </div>
+  </TerminalWindow>
+
+  <div style="margin-top:1.5rem">
+    {
+      skills.map((g) => (
+        <div class="shell__group">
+          <div class="line"><span class="c-key">{g.group}</span></div>
+          <ul class="chips">
+            {g.items.map((it) => (
+              <li class="chip">{it}</li>
+            ))}
+          </ul>
+        </div>
+      ))
+    }
+  </div>
+
+  <a class="back" href="/">back to shell</a>
+</Base>

@@ -1,0 +1,47 @@
+---
+import Base from '../layouts/Base.astro';
+import TerminalWindow from '../components/TerminalWindow.astro';
+import ShellBlock from '../components/ShellBlock.astro';
+import { projectListLines } from '../lib/shell';
+import { profile, projects } from '../data/site';
+---
+
+<Base
+  title={`projects — ${profile.name}`}
+  description={`Selected projects by ${profile.name}.`}
+>
+  <header class="pagehead">
+    <h1>projects</h1>
+    <p>full-stack builds, backend-heavy.</p>
+  </header>
+
+  <TerminalWindow title="patrik@barsi.xyz: ~/projects">
+    <div class="transcript">
+      <ShellBlock cmd="ls projects/" lines={projectListLines()} />
+    </div>
+  </TerminalWindow>
+
+  <div style="margin-top:1.5rem">
+    {
+      projects.map((p) => (
+        <article class="proj">
+          <h3>{p.slug}</h3>
+          <p class="proj__kind">{p.kind}</p>
+          <p class="out">{p.summary}</p>
+          <ul class="out">
+            {p.highlights.map((h) => (
+              <li>{h}</li>
+            ))}
+          </ul>
+          <ul class="chips">
+            {p.stack.map((t) => (
+              <li class="chip">{t}</li>
+            ))}
+          </ul>
+        </article>
+      ))
+    }
+  </div>
+
+  <a class="back" href="/">back to shell</a>
+</Base>

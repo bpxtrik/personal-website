@@ -1,0 +1,26 @@
+---
+import Base from '../layouts/Base.astro';
+import TerminalWindow from '../components/TerminalWindow.astro';
+import ShellBlock from '../components/ShellBlock.astro';
+import { experienceLines, educationLines } from '../lib/shell';
+import { profile } from '../data/site';
+---
+
+<Base
+  title={`experience — ${profile.name}`}
+  description={`Work history and education for ${profile.name}.`}
+>
+  <header class="pagehead">
+    <h1>experience</h1>
+    <p>where I have shipped code and what I studied.</p>
+  </header>
+
+  <TerminalWindow title="patrik@barsi.xyz: ~/experience">
+    <div class="transcript">
+      <ShellBlock cmd="cat experience.log" lines={experienceLines()} />
+      <ShellBlock cmd="cat education.md" lines={educationLines()} />
+    </div>
+  </TerminalWindow>
+
+  <a class="back" href="/">back to shell</a>
+</Base>

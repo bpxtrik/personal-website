@@ -1,0 +1,76 @@
+---
+import TerminalWindow from './TerminalWindow.astro';
+import {
+  linesToHtml,
+  promptHtml,
+  helpLines,
+  whoamiLines,
+} from '../lib/shell';
+import { profile } from '../data/site';
+
+const boot = [
+  ['[ ok ]', ' mounting /home/patrik'],
+  ['[ ok ]', ' loading profile.json'],
+  ['[ ok ]', ` starting ${profile.host} shell`],
+].map(
+  ([tag, rest]) =>
+    `<div class="line"><span class="b-ok">${tag}</span><span class="b-line">${rest}</span></div>`,
+).join('');
+
+const welcome =
+  `<div class="line">&nbsp;</div>` +
+  `<div class="line"><span class="c-accent">${profile.name}</span> <span class="c-muted">// ${profile.role}</span></div>` +
+  `<div class="shell__out">` +
+  linesToHtml(whoamiLines().slice(1)) +
+  `<div class="line">&nbsp;</div>` +
+  linesToHtml(helpLines()) +
+  `</div>`;
+
+const chips = ['about', 'experience', 'skills', 'projects', 'contact', 'neofetch'];
+---
+
+<TerminalWindow title={`${profile.handle}@${profile.host}: ~`} hero class="shell-win">
+  <div id="shell" class="shell">
+    <div class="shell__scroll" data-scroll>
+      <div class="boot" set:html={boot} />
+      <div class="shell__output" data-output set:html={welcome} />
+    </div>
+
+    <div class="shell__inputline">
+      <span class="prompt" data-prompt set:html={promptHtml()} />
+      <input
+        class="shell__input"
+        data-input
+        type="text"
+        autocomplete="off"
+        autocapitalize="off"
+        autocorrect="off"
+        spellcheck="false"
+        aria-label="Terminal input — type a command such as help"
+        enterkeyhint="go"
+      />
+    </div>
+  </div>
+
+  <p class="hint">
+    Type a command and hit <kbd>Enter</kbd>. Try:
+    {
+      chips.map((c) => (
+        <>
+          {' '}
+          <button type="button" class="chip" data-cmd={c}>
+            {c}
+          </button>
+        </>
+      ))
+    }
+  </p>
+</TerminalWindow>
+
+<p class="hint" data-nojs>
+  The prompt needs JavaScript. Use the navigation above to browse each section.
+</p>
+
+<script>
+  import '../scripts/terminal.ts';
+</script>

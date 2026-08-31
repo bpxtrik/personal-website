@@ -1,0 +1,17 @@
+---
+import { linesToHtml, promptHtml, type Line } from '../lib/shell';
+
+interface Props {
+  cmd: string;
+  lines: Line[];
+  path?: string;
+}
+const { cmd, lines, path = '~' } = Astro.props;
+---
+
+<div class="block">
+  <div class="block__cmd line">
+    <Fragment set:html={promptHtml(path)} /><span class="c-cmd">{cmd}</span>
+  </div>
+  <div class="out" set:html={linesToHtml(lines)} />
+</div>

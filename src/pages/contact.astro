@@ -1,0 +1,31 @@
+---
+import Base from '../layouts/Base.astro';
+import TerminalWindow from '../components/TerminalWindow.astro';
+import ShellBlock from '../components/ShellBlock.astro';
+import { contactLines } from '../lib/shell';
+import { profile } from '../data/site';
+---
+
+<Base
+  title={`contact — ${profile.name}`}
+  description={`Get in touch with ${profile.name}.`}
+>
+  <header class="pagehead">
+    <h1>contact</h1>
+    <p>open to graduate / junior software engineering roles.</p>
+  </header>
+
+  <TerminalWindow title="patrik@barsi.xyz: ~/contact">
+    <div class="transcript">
+      <ShellBlock cmd="cat contact.vcf" lines={contactLines()} />
+    </div>
+  </TerminalWindow>
+
+  <ul class="chips" style="margin-top:1.5rem">
+    <li><a class="chip" href={`mailto:${profile.email}`}>email</a></li>
+    <li><a class="chip" href={profile.socials.github} target="_blank" rel="noopener">github</a></li>
+    <li><a class="chip" href={profile.socials.linkedin} target="_blank" rel="noopener">linkedin</a></li>
+  </ul>
+
+  <a class="back" href="/">back to shell</a>
+</Base>

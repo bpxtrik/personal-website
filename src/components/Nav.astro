@@ -1,0 +1,30 @@
+---
+import { profile } from '../data/site';
+
+const links = [
+  { href: '/about', label: 'about' },
+  { href: '/experience', label: 'experience' },
+  { href: '/skills', label: 'skills' },
+  { href: '/projects', label: 'projects' },
+  { href: '/contact', label: 'contact' },
+];
+
+const here = Astro.url.pathname.replace(/\/$/, '') || '/';
+---
+
+<nav class="nav" aria-label="Primary">
+  <div class="nav__inner">
+    <a class="nav__brand" href="/">{profile.handle}@{profile.host}</a>
+    {
+      links.map((l) => (
+        <a
+          class="nav__link"
+          href={l.href}
+          aria-current={here === l.href ? 'page' : undefined}
+        >
+          {l.label}
+        </a>
+      ))
+    }
+  </div>
+</nav>
