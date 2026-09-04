@@ -54,8 +54,8 @@ export const experience = [
   {
     role: 'Software Engineering Intern',
     company: 'EPAM Systems',
-    start: '2026',
-    end: 'Present',
+    start: 'Apr 2026',
+    end: 'Jul 2026',
     location: 'Novi Sad, Serbia',
     highlights: [
       'Worked on AWS cloud architecture and implementation, focusing on scalable and secure backend infrastructure.',
@@ -63,7 +63,7 @@ export const experience = [
       'Applied cloud security best practices: access control, secure API communication, and resource protection.',
       'Collaborated with engineers on production-oriented software development and cloud deployment workflows.',
     ],
-    stack: ['AWS Lambda', 'API Gateway', 'RDS', 'IAM', 'CI/CD'],
+    stack: ['Python', 'AWS Lambda', 'API Gateway', 'RDS', 'IAM', 'CI/CD'],
   },
 ] as const;
 

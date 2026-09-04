@@ -270,13 +270,14 @@ function wrap(text: string, width = 78): Line[] {
 }
 
 const SECTION_ROUTES: Record<string, string> = {
-  about: '/about',
+  about: '/',
   experience: '/experience',
   work: '/experience',
   education: '/experience',
   skills: '/skills',
   projects: '/projects',
   contact: '/contact',
+  shell: '/shell',
   home: '/',
   '~': '/',
   '..': '/',

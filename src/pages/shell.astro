@@ -1,0 +1,19 @@
+---
+import Base from '../layouts/Base.astro';
+import Terminal from '../components/Terminal.astro';
+import { profile } from '../data/site';
+---
+
+<Base
+  title={`shell — ${profile.name}`}
+  description={`An interactive command-line tour of ${profile.name}'s work — type help to get started.`}
+>
+  <header class="pagehead">
+    <h1>shell</h1>
+    <p>type a command and hit enter, or click one of the chips below.</p>
+  </header>
+
+  <Terminal />
+
+  <a class="back" href="/">back home</a>
+</Base>

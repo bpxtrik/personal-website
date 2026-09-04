@@ -33,7 +33,7 @@
     "Cascadia Code", "Menlo", "Consolas", "DejaVu Sans Mono", ui-monospace,
     monospace;
 
-  --maxw: 900px;
+  --maxw: 1035px;
   --radius: 10px;
   --line: 1.65;
 }
@@ -442,6 +442,7 @@ button.chip:focus-visible {
   color: var(--fg-dim);
 }
 .back::before { content: "❮ "; color: var(--prompt-user); }
+
 
 /* ============================================================
    Boot sequence (home)
